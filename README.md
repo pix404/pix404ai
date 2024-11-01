@@ -1,14 +1,14 @@
-# WebDiffusion
+# PIX4AI
 
 Generate batches of images in your browser with Stable Diffusion - private, free, and no installation required.
 
-[Try it out](https://webdiffusion.avsync.live)
+[Try it out](https://pix4.ai)
 
-![image](https://github.com/AVsync-LIVE/WebDiffusion/assets/18317587/3c1b9f6f-0800-4600-8735-522e25697d83)
+![PIX4AI Preview](img/pix4ai-social-share.png)
 
 Please ensure you have a GPU with 8GB VRAM (or an M1/M2 Mac), and Chrome or Edge version 113 or higher.
 
-WebDiffusion is a modified version of [mlc-ai/web-stable-diffusion](https://github.com/mlc-ai/web-stable-diffusion) that comes with all the required files. You don't need to install Python, any pip dependencies, or execute build commands. I've eliminated all superfluous code, fixed critical bugs which made the original web-stable-diffusion project unusable, and added numerous quality-of-life features.
+PIX4AI is a modified version of [mlc-ai/web-stable-diffusion](https://github.com/mlc-ai/web-stable-diffusion) that comes with all the required files. You don't need to install Python, any pip dependencies, or execute build commands. I've eliminated all superfluous code, fixed critical bugs which made the original web-stable-diffusion project unusable, and added numerous quality-of-life features.
 
 ## Features
 
@@ -26,7 +26,7 @@ WebDiffusion is a modified version of [mlc-ai/web-stable-diffusion](https://gith
 
 ## Usage
 
-1. Open the WebDiffusion application in your browser.
+1. Open PIX4AI in your browser.
 2. Ensure that you have a GPU with 8GB VRAM or an M1/M2 Mac.
 3. Enter your desired input prompt in the "Prompt" text area. For example, you can enter "Art nouveau stained glass hummingbird".
 4. Optionally, you can provide a negative prompt in [brackets].
@@ -36,7 +36,7 @@ WebDiffusion is a modified version of [mlc-ai/web-stable-diffusion](https://gith
 
 ## Contributing
 
-We welcome contributions to improve WebDiffusion. If you encounter any issues or have suggestions for new features, please feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/AVsync-LIVE/WebDiffusion/issues).
+We welcome contributions to improve PIX4AI. If you encounter any issues or have suggestions for new features, please feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/pix4ai/pix4ai/issues).
 
 ## License
 

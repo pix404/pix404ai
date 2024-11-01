@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>WebDiffusion</title>
-    <meta property="og:title" content="WebDiffusion">
+    <title>PIX4AI</title>
+    <meta property="og:title" content="PIX4AI">
     <meta property="og:description" content="Generate batches of images in your browser with Stable Diffusion - private, free, and no installation required.">
-    <meta property="og:image" content="img/webdiffusion-social-share.png">
+    <meta property="og:image" content="img/pix4ai-social-share.png">
     <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.json">
@@ -17,7 +17,7 @@
     <script src="assets/js/localforage.min.js"></script>
     <div class="content">
         <div class="input-column">
-            <img id='logo' src="img/webdiffusion-typography.svg" alt="WebDiffusion"/>
+            <img id='logo' src="img/pix4ai-typography.svg" alt="PIX4AI"/>
 
             <p>Generate batches of images in your browser with Stable Diffusion - private, free, and no installation required.</p>
             
@@ -31,7 +31,7 @@
             <div id="log"></div>
 
             <div id="link">
-                <a href="https://avsync.live" target="_blank"><img id='link-icon' src='img/up-right-from-square-solid.svg' />Create audio-reactive visuals for free</a>
+                <a href="https://pix4.ai" target="_blank"><img id='link-icon' src='img/up-right-from-square-solid.svg' />Create more AI art with PIX4AI</a>
             </div>
         </div>
     <div id="output">
@@ -48,7 +48,7 @@
         function downloadCanvas() {
             const canvas = document.getElementById("canvas");
             const prompt = document.getElementById("inputPrompt").value.trim();
-            const filename = prompt ? prompt + ".png" : "webdiffusion.png";
+            const filename = prompt ? prompt + ".png" : "pix4ai.png";
 
             const downloadLink = document.createElement("a");
             downloadLink.href = canvas.toDataURL("image/png");
@@ -93,21 +93,21 @@
         });
     </script>
 
-<script>
-    // Get references to the textarea and generate button
-    const inputPrompt = document.getElementById('inputPrompt');
-    const generateButton = document.getElementById('generate');
+    <script>
+        // Get references to the textarea and generate button
+        const inputPrompt = document.getElementById('inputPrompt');
+        const generateButton = document.getElementById('generate');
 
-    // Add an event listener to the textarea to check its value
-    inputPrompt.addEventListener('input', function() {
-        // Disable the generate button if the textarea is empty
-        if (inputPrompt.value.trim() === '') {
-            generateButton.disabled = true;
-        } else {
-            generateButton.disabled = false;
-        }
-    });
-</script>
+        // Add an event listener to the textarea to check its value
+        inputPrompt.addEventListener('input', function() {
+            // Disable the generate button if the textarea is empty
+            if (inputPrompt.value.trim() === '') {
+                generateButton.disabled = true;
+            } else {
+                generateButton.disabled = false;
+            }
+        });
+    </script>
 
     <script async>
         window.addEventListener('DOMContentLoaded', (event) => {
@@ -117,16 +117,16 @@
 
                 // Create a container
                 let container = document.createElement('div');
-                container.className = 'image-container'; // Add a class for styling
+                container.className = 'image-container';
 
                 // Create an image
                 let img = new Image();
-                img.className = 'generated-image'; // Add a class for styling
+                img.className = 'generated-image';
                 img.onload = function() {
                     // Add prompts to the container
                     let inputPromptElem = document.createElement('p');
                     inputPromptElem.textContent = inputPrompt;
-                    inputPromptElem.className = 'input-prompt'; // Add a class for styling
+                    inputPromptElem.className = 'input-prompt';
                     container.appendChild(inputPromptElem);
 
                     // Append the image to the container
@@ -135,7 +135,7 @@
                     // Create a download button
                     let btn = document.createElement('button');
                     btn.textContent = 'Download';
-                    btn.className = 'download-button'; // Add a class for styling
+                    btn.className = 'download-button';
                     btn.onclick = function() {
                         // Create an anchor element and simulate a click
                         let a = document.createElement('a');
@@ -153,7 +153,7 @@
                     // Create a delete button
                     let delBtn = document.createElement('button');
                     delBtn.textContent = '✕';
-                    delBtn.className = 'delete-button'; // Add a class for styling
+                    delBtn.className = 'delete-button';
                     delBtn.onclick = function() {
                         // Remove the container from the DOM
                         outputContainer.removeChild(container);
@@ -165,37 +165,36 @@
                     // Append the delete button to the container
                     container.appendChild(delBtn);
 
-                    // Get a reference to the first child of the outputContainer
+                    // Get a reference to the second child of the outputContainer
                     const outputContainer = document.getElementById("output");
 
-                    let firstChild = outputContainer.firstChild;
+                    let secondChild = outputContainer.children[1];
 
-                    // Insert the new container before the first child
-                    outputContainer.insertBefore(container, firstChild);
+                    // Insert the new container before the second child
+                    outputContainer.insertBefore(container, secondChild);
+
+                    document.getElementById("progress-tracker-progress").value = 0;
                 };
-
                 img.src = URL.createObjectURL(blob);
             }).then(function() {
                 console.log('Iteration has completed');
             }).catch(function(err) {
-                // This code runs if there were any errors
                 console.error(err);
             });
         });
     </script>
 
-     <script>
-        // Check to make sure the browser supports service workers
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-          .register('/service-worker.js')
-          .then(() => {
-            console.log('Service worker registered');
-          })
-          .catch(err => {
-            console.log('Service worker registration failed: ' + err);
-          });
-      }
-      </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/service-worker.js')
+                .then(() => {
+                    console.log('Service worker registered');
+                })
+                .catch(err => {
+                    console.log('Service worker registration failed: ' + err);
+                });
+        }
+    </script>
 </body>
 </html>
